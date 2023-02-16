@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.FetchType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +26,18 @@ public class Alumno {
     private String apellido;
     private Integer dni;
 
-    @ManyToOne
-    @JoinColumn(name="alumnos_id")
+    @ManyToOne( fetch= FetchType.LAZY )
+    @JoinColumn(name = "curso_id")
     private Curso curso;
+
+    public Alumno(){}
+
+    public Alumno(String nombre, String apellido, Integer dni, Curso curso) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.curso = curso;
+    }
+    
+
 }

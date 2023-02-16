@@ -26,4 +26,7 @@ public class AlumnoService {
     public void deleteById(Long id){
         repo.deleteById(id);
     }
+    public void saveAll(Iterable<Alumno> a){
+        repo.saveAll(a);
+    }
 }
